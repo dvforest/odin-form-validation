@@ -91,10 +91,6 @@ select:valid + label {
     transition: background-position 0.3s ease;
 }
 
-.input-select:valid {
-    background-position: right 3rem center;
-}
-
 .submit-button {
     padding: 10px 20px;
     background-color: #6495ed;
@@ -120,6 +116,7 @@ button:active {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
 
+/* default check icon */
 .input-check {
     height: 1.7rem;
     aspect-ratio: 1;
@@ -131,6 +128,7 @@ button:active {
     transition: all 0.3s ease;
 }
 
+/* valid check icon */
 input:valid ~ .input-check,
 select:valid ~ .input-check {
     filter: brightness(0) saturate(100%) invert(47%) sepia(85%) saturate(620%) hue-rotate(75deg)
@@ -139,17 +137,25 @@ select:valid ~ .input-check {
     opacity: 1;
 }
 
+/* valid input field */
 input:valid,
 select:valid {
     background-color: #e6f9ec;
     outline: 1px solid #2ecc71;
 }
 
+/* invalid check icon */
 input:invalid:not(:placeholder-shown) ~ .input-check {
     filter: brightness(0) saturate(100%) invert(32%) sepia(95%) saturate(1300%) hue-rotate(340deg)
         brightness(95%) contrast(90%);
 }
 
+/* invalid input field */
 input:invalid:not(:placeholder-shown) {
     outline: 1px solid #e74c3c;
+}
+
+/* chevron offset to make space for check icon when valid */
+.input-select:valid {
+    background-position: right 3rem center;
 }
