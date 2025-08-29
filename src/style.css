@@ -129,8 +129,8 @@ button:active {
 }
 
 /* valid check icon */
-input:valid ~ .input-check,
-select:valid ~ .input-check {
+input.is-valid ~ .input-check,
+select.is-valid ~ .input-check {
     filter: brightness(0) saturate(100%) invert(47%) sepia(85%) saturate(620%) hue-rotate(75deg)
         brightness(95%) contrast(90%);
     transform: translateY(-50%) scale(1);
@@ -138,24 +138,26 @@ select:valid ~ .input-check {
 }
 
 /* valid input field */
-input:valid,
-select:valid {
+input.is-valid,
+select.is-valid {
     background-color: #e6f9ec;
     outline: 1px solid #2ecc71;
 }
 
-/* invalid check icon */
-input:invalid:not(:placeholder-shown) ~ .input-check {
-    filter: brightness(0) saturate(100%) invert(32%) sepia(95%) saturate(1300%) hue-rotate(340deg)
-        brightness(95%) contrast(90%);
-}
-
 /* invalid input field */
-input:invalid:not(:placeholder-shown) {
+input.is-invalid {
     outline: 1px solid #e74c3c;
 }
 
+/* invalid check icon */
+input.is-invalid ~ .input-check {
+    filter: brightness(0) saturate(100%) invert(32%) sepia(95%) saturate(1300%) hue-rotate(340deg)
+        brightness(95%) contrast(90%);
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+}
+
 /* chevron offset to make space for check icon when valid */
-.input-select:valid {
+.input-select.is-valid {
     background-position: right 3rem center;
 }
